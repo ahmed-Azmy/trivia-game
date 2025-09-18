@@ -2,843 +2,971 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مسابقة اليوم الوطني السعودي</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مسابقة اليوم الوطني السعودي</title>
+  <style>
+    /* Existing styles with modifications */
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Noto Sans Arabic', sans-serif;
-            background-image: url('bigback.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            direction: rtl;
-        }
+    body {
+      font-family: "Cairo", sans-serif;
+      background-image: url('bigback.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      direction: rtl;
+    }
 
-        .game-container {
-            width: 100%;
-            max-width: 650px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-        }
+    .game-container {
+      width: 100%;
+      max-width: 650px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .header-section {
-            background: url("back.jpg") no-repeat center center/cover;
-            padding: 40px 30px;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            min-height: 130px;
-        }
+    .header-section {
+      background: url("back.jpg") no-repeat center center/cover;
+      padding: 40px 30px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      min-height: 130px;
+    }
 
-        .header-section h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2;
-        }
+    .header-section h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
 
-        .header-section .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-            position: relative;
-            z-index: 2;
-        }
+    .header-section .subtitle {
+      font-size: 1.2em;
+      opacity: 0.9;
+      position: relative;
+      z-index: 2;
+    }
 
-        .game-section {
-            flex: 1;
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    .game-section {
+      flex: 1;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-        .screen {
-            display: none;
-            text-align: center;
-            animation: fadeIn 0.5s ease-in-out;
-        }
+    .screen {
+      display: none;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
 
-        .screen.active {
-            display: block;
-        }
+    .screen.active {
+      display: block;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .input-group {
-            margin: 30px 0;
-        }
+    .input-group {
+      margin: 30px 0;
+    }
 
-        .input-group label {
-            display: block;
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #0d4f3c;
-            margin-bottom: 15px;
-        }
+    .input-group label {
+      display: block;
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #0d4f3c;
+      margin-bottom: 15px;
+    }
 
-        .input-group input {
-            width: 100%;
-            max-width: 300px;
-            padding: 15px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1.1em;
-            text-align: center;
-            direction: rtl;
-            transition: border-color 0.3s ease;
-        }
+    .input-group input {
+      width: 100%;
+      max-width: 300px;
+      padding: 15px 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 1.1em;
+      text-align: center;
+      direction: rtl;
+      transition: border-color 0.3s ease;
+    }
 
-        .input-group input:focus {
-            outline: none;
-            border-color: #0d7377;
-        }
+    .input-group input:focus {
+      outline: none;
+      border-color: #0d7377;
+    }
 
-        .btn {
-            background: linear-gradient(135deg, #125743 0%, #24633f 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 10px;
-            font-size: 1.2em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 10px;
-        }
+    .btn {
+      background: linear-gradient(135deg, #125743 0%, #24633f 100%);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 10px;
+    }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(13, 79, 60, 0.3);
-        }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(13, 79, 60, 0.3);
+    }
 
-        .btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
+    .btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
 
-        .btn:disabled:hover {
-            transform: none;
-            box-shadow: none;
-        }
+    .btn:disabled:hover {
+      transform: none;
+      box-shadow: none;
+    }
 
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #0d7377, #2eb398);
-            border-radius: 4px;
-            transition: width 0.5s ease;
-        }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0d7377, #2eb398);
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
 
-        .question-counter {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 10px;
-        }
+    .question-counter {
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 10px;
+    }
 
-        .question {
-            font-size: 1.4em;
-            font-weight: 600;
-            color: #0d4f3c;
-            margin: 30px 0;
-            line-height: 1.6;
-        }
+    .question {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #0d4f3c;
+      margin: 30px 0;
+      line-height: 1.6;
+    }
 
-        .answers {
-            display: grid;
-            gap: 15px;
-            margin: 30px 0;
-        }
+    .answers {
+      display: grid;
+      gap: 15px;
+      margin: 30px 0;
+      max-height: 300px;
+      /* Fixed height for answer section */
+      overflow-y: auto;
+      /* Enable vertical scrolling */
+      padding: 10px;
+      /* Add padding for better appearance */
+      border-radius: 10px;
+      /* Match other elements */
+      background: #f8f9fa;
+      /* Subtle background to distinguish section */
+    }
 
-        .answer {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 11px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+    /* Custom Scrollbar Styles */
+    .answers::-webkit-scrollbar {
+      width: 8px;
+      /* Slim scrollbar */
+    }
 
-        .answer:hover {
-            background: #e3f2fd;
-            border-color: #2196f3;
-            transform: translateY(-2px);
-        }
+    .answers::-webkit-scrollbar-track {
+      background: #e0e0e0;
+      /* Track color */
+      border-radius: 10px;
+    }
 
-        .navigation-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
+    .answers::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #0d7377, #2eb398);
+      /* Match progress bar colors */
+      border-radius: 10px;
+      border: 2px solid #f8f9fa;
+      /* Add border for better contrast */
+    }
 
-        .answer.selected {
-            background: #e3f2fd;
-            border-color: #2196f3;
-            transform: translateY(-2px);
-        }
+    .answers::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(90deg, #0a5a5e, #259986);
+      /* Slightly darker on hover */
+    }
 
-        .answer.correct {
-            background: #e8f5e8;
-            border-color: #4caf50;
-            color: #2e7d32;
-        }
+    /* Firefox Scrollbar */
+    .answers {
+      scrollbar-width: thin;
+      scrollbar-color: #0d7377 #e0e0e0;
+      /* Thumb and track colors */
+    }
 
-        .answer.incorrect {
-            background: #ffebee;
-            border-color: #f44336;
-            color: #c62828;
-        }
+    .answer {
+      background: #ffffff;
+      /* White background for answers to contrast with .answers section */
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
-        .answer.disabled {
-            pointer-events: none;
-            opacity: 0.7;
-        }
+    .answer:hover {
+      background: #e3f2fd;
+      border-color: #2196f3;
+      transform: translateY(-2px);
+    }
 
-        .feedback {
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
+    .navigation-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: nowrap;
+      /* Prevent wrapping */
+    }
 
-        .feedback.correct {
-            background: #e8f5e8;
-            color: #2e7d32;
-            border: 2px solid #4caf50;
-        }
+    .answer.selected {
+      background: #e3f2fd;
+      border-color: #2196f3;
+      transform: translateY(-2px);
+    }
 
-        .feedback.incorrect {
-            background: #ffebee;
-            color: #c62828;
-            border: 2px solid #f44336;
-        }
+    .answer.correct {
+      background: #e8f5e8;
+      border-color: #4caf50;
+      color: #2e7d32;
+    }
 
-        .score {
-            font-size: 3em;
-            font-weight: 700;
-            color: #0d4f3c;
-            margin: 20px 0;
-        }
+    .answer.incorrect {
+      background: #ffebee;
+      border-color: #f44336;
+      color: #c62828;
+    }
 
-        .score-message {
-            font-size: 1.3em;
-            font-weight: 600;
-            margin: 20px 0;
-        }
+    .answer.disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
 
-        .score-message.success {
-            color: #2e7d32;
-        }
+    .feedback {
+      margin: 20px 0;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
 
-        .score-message.failure {
-            color: #c62828;
-        }
+    .feedback.correct {
+      background: #e8f5e8;
+      color: #2e7d32;
+      border: 2px solid #4caf50;
+    }
 
-        .review-list {
-            text-align: right;
-            margin: 30px 0;
-            max-height: 400px;
-            overflow-y: auto;
-        }
+    .feedback.incorrect {
+      background: #ffebee;
+      color: #c62828;
+      border: 2px solid #f44336;
+    }
 
-        .review-item {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 15px 0;
-            border-right: 4px solid #e0e0e0;
-        }
+    .score {
+      font-size: 3em;
+      font-weight: 700;
+      color: #0d4f3c;
+      margin: 20px 0;
+    }
 
-        .review-item.correct {
-            border-right-color: #4caf50;
-        }
+    .score-message {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin: 20px 0;
+    }
 
-        .review-item.incorrect {
-            border-right-color: #f44336;
-        }
+    .score-message.success {
+      color: #2e7d32;
+    }
 
-        .review-question {
-            font-weight: 600;
-            color: #0d4f3c;
-            margin-bottom: 10px;
-        }
+    .score-message.failure {
+      color: #c62828;
+    }
 
-        .review-answer {
-            margin: 5px 0;
-            font-size: 0.95em;
-        }
+    .review-list {
+      text-align: right;
+      margin: 30px 0;
+      max-height: 400px;
+      overflow-y: auto;
+    }
 
-        .review-answer.your-answer {
-            color: #666;
-        }
+    .review-item {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      border-right: 4px solid #e0e0e0;
+    }
 
-        .review-answer.correct-answer {
-            color: #2e7d32;
-            font-weight: 600;
-        }
+    .review-item.correct {
+      border-right-color: #4caf50;
+    }
 
-        .review-answer.incorrect-answer {
-            color: #c62828;
-        }
+    .review-item.incorrect {
+      border-right-color: #f44336;
+    }
 
-        @media (max-width: 768px) {
-            .game-container {
-                margin: 10px;
-                border-radius: 15px;
-            }
+    .review-question {
+      font-weight: 600;
+      color: #0d4f3c;
+      margin-bottom: 10px;
+    }
 
-            .header-section {
-                padding: 30px 20px;
-            }
+    .review-answer {
+      margin: 5px 0;
+      font-size: 0.95em;
+    }
 
-            .header-section h1 {
-                font-size: 2em;
-            }
+    .review-answer.your-answer {
+      color: #666;
+    }
 
-            .game-section {
-                padding: 30px 20px;
-            }
+    .review-answer.correct-answer {
+      color: #2e7d32;
+      font-weight: 600;
+    }
 
-            .question {
-                font-size: 1.2em;
-            }
+    .review-answer.incorrect-answer {
+      color: #c62828;
+    }
 
-            .answer {
-                padding: 15px;
-            }
+    /* Media Queries for Responsive Design */
+    @media (max-width: 768px) {
+      .game-container {
+        margin: 15px;
+        border-radius: 12px;
+        min-height: 600px;
+      }
 
-            .btn {
-                padding: 12px 30px;
-                font-size: 1.1em;
-            }
-        }
+      .header-section {
+        padding: 30px 20px;
+      }
 
-        @media (max-width: 480px) {
-            .header-section h1 {
-                font-size: 1.7em;
-            }
+      .header-section h1 {
+        font-size: 2em;
+      }
 
-            .header-section .subtitle {
-                font-size: 1em;
-            }
+      .header-section .subtitle {
+        font-size: 1.1em;
+      }
 
-            .score {
-                font-size: 2.5em;
-            }
-        }
-    </style>
+      .game-section {
+        padding: 30px 20px;
+      }
+
+      .question {
+        font-size: 1.3em;
+        line-height: 1.5;
+      }
+
+      .answers {
+        max-height: 250px;
+        /* Slightly smaller fixed height for medium screens */
+        padding: 8px;
+      }
+
+      .answer {
+        padding: 7px;
+        font-size: 1em;
+      }
+
+      .btn {
+        padding: 12px 20px;
+        font-size: 1em;
+        min-width: 120px;
+      }
+
+      .navigation-buttons {
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
+
+      .input-group input {
+        max-width: 250px;
+        padding: 12px 15px;
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .game-container {
+        margin: 10px;
+        min-height: 550px;
+      }
+
+      .header-section {
+        padding: 25px 15px;
+      }
+
+      .header-section h1 {
+        font-size: 1.8em;
+      }
+
+      .header-section .subtitle {
+        font-size: 1em;
+      }
+
+      .game-section {
+        padding: 25px 15px;
+      }
+
+      .question {
+        font-size: 1.2em;
+        margin: 20px 0;
+      }
+
+      .answers {
+        max-height: 200px;
+        /* Smaller fixed height for small screens */
+        padding: 8px;
+      }
+
+      .answer {
+        padding: 6px;
+        font-size: 0.95em;
+      }
+
+      .btn {
+        padding: 10px 15px;
+        font-size: 0.9em;
+        min-width: 100px;
+      }
+
+      .navigation-buttons {
+        gap: 8px;
+        flex-wrap: nowrap;
+      }
+
+      .input-group input {
+        max-width: 200px;
+        padding: 10px 12px;
+        font-size: 0.95em;
+      }
+
+      .progress-bar {
+        height: 6px;
+      }
+
+      /* Adjust scrollbar for smaller screens */
+      .answers::-webkit-scrollbar {
+        width: 6px;
+        /* Slimmer scrollbar for small screens */
+      }
+
+      .answers::-webkit-scrollbar-thumb {
+        border: 1px solid #f8f9fa;
+        /* Smaller border for compact look */
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="game-container">
-        <div class="header-section">
-            <!-- <h1>مسابقة اليوم الوطني السعودي</h1> -->
-            <!-- <div class="subtitle">اختبر معلوماتك عن المملكة العربية السعودية</div> -->
-        </div>
-
-        <div class="game-section">
-            <!-- Start Screen -->
-            <div id="start-screen" class="screen active">
-                <div class="input-group">
-                    <label for="player-name">برجاء ادخال اسمك لبدأ المسابقة : </label>
-                    <input type="text" id="player-name" >
-                </div>
-                <button class="btn" onclick="startGame()">ابدأ</button>
-            </div>
-
-            <!-- Game Screen -->
-            <div id="game-screen" class="screen">
-                <div class="question-counter" id="question-counter">السؤال 1 من 10</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill" style="width: 10%"></div>
-                </div>
-                <div class="question" id="question-text"></div>
-                <div class="answers" id="answers"></div>
-                <div class="navigation-buttons">
-                    <button class="btn" id="prev-btn" onclick="previousQuestion()" style="display: none;">
-                        السابق</button>
-                    <button class="btn" id="next-btn" onclick="nextQuestion()" style="display: none;">
-                        التالي</button>
-                    <button class="btn" id="finish-btn" onclick="finishQuiz()" style="display: none;">إنهاء
-                        المسابقة</button>
-                </div>
-            </div>
-
-            <!-- Results Screen -->
-            <div id="results-screen" class="screen">
-                <div class="score" id="final-score">0/10</div>
-                <div class="score-message" id="score-message"></div>
-                <div class="review-list" id="review-list"></div>
-                <button class="btn" onclick="resetGame()">حاول مرة أخرى</button>
-            </div>
-        </div>
+  <div class="game-container">
+    <div class="header-section">
+      <!-- <h1>مسابقة اليوم الوطني السعودي</h1> -->
+      <!-- <div class="subtitle">اختبر معلوماتك عن المملكة العربية السعودية</div> -->
     </div>
 
-    <script>
-        const allQuestions = [
-            {
-                question: "متى يُحتفل باليوم الوطني السعودي؟",
-                answers: ["23 سبتمبر", "3 أكتوبر", "15 أغسطس", "1 يناير"],
-                correct: 0
-            },
-            {
-                question: "في أي عام تأسست المملكة العربية السعودية؟",
-                answers: ["1930", "1932", "1925", "1940"],
-                correct: 1
-            },
-            {
-                question: "من هو مؤسس المملكة العربية السعودية؟",
-                answers: ["الملك فيصل", "الملك عبدالعزيز آل سعود", "الملك سلمان", "الملك فهد"],
-                correct: 1
-            },
-            {
-                question: "ما هي عاصمة المملكة العربية السعودية؟",
-                answers: ["جدة", "مكة المكرمة", "الرياض", "الدمام"],
-                correct: 2
-            },
-            {
-                question: "ما هو شعار المملكة العربية السعودية؟",
-                answers: ["النسر", "الصقر", "السيفان والنخلة", "الأسد"],
-                correct: 2
-            },
-            {
-                question: "ما هي العملة الرسمية للمملكة العربية السعودية؟",
-                answers: ["الدينار", "الريال", "الدرهم", "الليرة"],
-                correct: 1
-            },
-            {
-                question: "كم عدد مناطق المملكة العربية السعودية الإدارية؟",
-                answers: ["11", "13", "15", "17"],
-                correct: 1
-            },
-            {
-                question: "ما هو اللون الأساسي في علم المملكة العربية السعودية؟",
-                answers: ["الأبيض", "الأخضر", "الأزرق", "الأحمر"],
-                correct: 1
-            },
-            {
-                question: "في أي قارة تقع المملكة العربية السعودية؟",
-                answers: ["أفريقيا", "آسيا", "أوروبا", "أمريكا"],
-                correct: 1
-            },
-            {
-                question: "ما هو أعلى جبل في المملكة العربية السعودية؟",
-                answers: ["جبل اللوز", "جبل السودة", "جبل طويق", "جبل فيفا"],
-                correct: 1
-            },
-            {
-                question: "ما هو اسم النشيد الوطني السعودي؟",
-                answers: ["السلام الملكي", "النشيد الوطني", "عاش الملك", "سارعي"],
-                correct: 3
-            },
-            {
-                question: "ما هي المدينة التي تُعد مركز الحج الإسلامي؟",
-                answers: ["الرياض", "جدة", "مكة المكرمة", "المدينة المنورة"],
-                correct: 2
-            },
-            {
-                question: "ما هو اسم أول حقل نفط تم اكتشافه في السعودية؟",
-                answers: ["حقل السفانية", "حقل الغوار", "حقل الدمام", "حقل خريص"],
-                correct: 2
-            },
-            {
-                question: "في أي عام أصبحت المرأة السعودية مؤهلة للقيادة؟",
-                answers: ["2015", "2017", "2018", "2020"],
-                correct: 2
-            },
-            {
-                question: "ما هو اسم المشروع السياحي الضخم في السعودية؟",
-                answers: ["نيوم", "الرياض", "جدة", "القدية"],
-                correct: 0
-            },
-            {
-                question: "ما هي لغة المملكة العربية السعودية الرسمية؟",
-                answers: ["الإنجليزية", "العربية", "الفرنسية", "الفارسية"],
-                correct: 1
-            },
-            {
-                question: "ما هو اسم الصحراء الكبرى في السعودية؟",
-                answers: ["الربع الخالي", "النفود", "الدهناء", "صحراء الدبدبة"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم أول جامعة في المملكة العربية السعودية؟",
-                answers: ["جامعة الملك سعود", "جامعة الملك عبدالعزيز", "جامعة الملك فيصل", "جامعة أم القرى"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم الملك الحالي للمملكة العربية السعودية؟",
-                answers: ["الملك فهد", "الملك عبدالله", "الملك سلمان", "الملك خالد"],
-                correct: 2
-            },
-            {
-                question: "ما هو اسم المهرجان الثقافي السنوي في الجنادرية؟",
-                answers: ["مهرجان الرياض", "مهرجان جدة", "مهرجان الجنادرية", "مهرجان الدمام"],
-                correct: 2
-            },
-            {
-                question: "ما هو اسم البحر الذي يحدها السعودية من الشرق؟",
-                answers: ["البحر الأحمر", "الخليج العربي", "بحر العرب", "المحيط الهندي"],
-                correct: 1
-            },
-            {
-                question: "ما هو اسم المدينة التي تستضيف موسم الرياض؟",
-                answers: ["جدة", "الدمام", "الرياض", "مكة"],
-                correct: 2
-            },
-            {
-                question: "في أي عام أُسست شركة أرامكو السعودية؟",
-                answers: ["1933", "1945", "1950", "1960"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم الجبل الذي يقع بالقرب من مكة؟",
-                answers: ["جبل النور", "جبل طويق", "جبل السودة", "جبل فيفا"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم أكبر ميناء في المملكة العربية السعودية؟",
-                answers: ["ميناء جدة الإسلامي", "ميناء الملك عبدالعزيز", "ميناء ينبع", "ميناء الجبيل"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم الوادي الذي يقع في الطائف؟",
-                answers: ["وادي حنيفة", "وادي الرمة", "وادي لجب", "وادي الدواسر"],
-                correct: 2
-            },
-            {
-                question: "ما هو اسم أكبر مدينة من حيث عدد السكان في السعودية؟",
-                answers: ["الرياض", "جدة", "مكة", "الدمام"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم المطار الرئيسي في الرياض؟",
-                answers: ["مطار الملك فهد", "مطار الملك خالد", "مطار الملك عبدالعزيز", "مطار الأمير محمد بن عبدالعزيز"],
-                correct: 1
-            },
-            {
-                question: "ما هو اسم أطول طريق سريع في السعودية؟",
-                answers: ["طريق 10", "طريق 40", "طريق 50", "طريق 60"],
-                correct: 1
-            },
-            {
-                question: "ما هو اسم المنطقة التي تشتهر بالزراعة في السعودية؟",
-                answers: ["القصيم", "الرياض", "الشرقية", "جازان"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم أكبر مشروع للطاقة الشمسية في السعودية؟",
-                answers: ["مشروع سكاكا", "مشروع نيوم", "مشروع الشعيبة", "مشروع القدية"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم المدينة التي تُعرف باسم عروس البحر الأحمر؟",
-                answers: ["جدة", "ينبع", "الدمام", "الجبيل"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم أول ملك للمملكة العربية السعودية؟",
-                answers: ["الملك عبدالعزيز", "الملك سعود", "الملك فيصل", "الملك خالد"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم الحديقة الوطنية الأولى في السعودية؟",
-                answers: ["حديقة الملك عبدالله", "حديقة الملك فهد", "الحديقة الوطنية الأولى", "حديقة الأحساء الوطنية"],
-                correct: 2
-            },
-            {
-                question: "ما هو اسم المعركة التي أدت إلى توحيد الرياض؟",
-                answers: ["معركة الرياض", "معركة جدة", "معركة مكة", "معركة الدمام"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم أكبر محمية طبيعية في السعودية؟",
-                answers: ["محمية الملك سلمان", "محمية الإمام تركي", "محمية الربع الخالي", "محمية الحرة"],
-                correct: 0
-            },
-            {
-                question: "في أي عام انضمت السعودية إلى منظمة التجارة العالمية؟",
-                answers: ["1995", "2000", "2005", "2010"],
-                correct: 2
-            },
-            {
-                question: "ما هو اسم أكبر جزيرة سعودية في الخليج العربي؟",
-                answers: ["جزيرة فرسان", "جزيرة تاروت", "جزيرة دارين", "جز Elisha"],
-                correct: 1
-            },
-            {
-                question: "ما هو اسم المنطقة التي تشتهر بالتمور في السعودية؟",
-                answers: ["الأحساء", "الرياض", "جدة", "القصيم"],
-                correct: 0
-            },
-            {
-                question: "ما هو اسم أكبر مهرجان رياضي في السعودية؟",
-                answers: ["مهرجان الملك عبدالعزيز للإبل", "مهرجان الرياض الرياضي", "مهرجان جدة الرياضي", "مهرجان الدمام"],
-                correct: 0
-            }
-        ];
+    <div class="game-section">
+      <!-- Start Screen -->
+      <div id="start-screen" class="screen active">
+        <div class="input-group">
+          <label for="player-name">برجاء ادخال اسمك لبدأ المسابقة : </label>
+          <input type="text" id="player-name">
+        </div>
+        <button class="btn" onclick="startGame()">ابدأ</button>
+      </div>
 
-        let selectedQuestions = [];
-        let gameState = {
-            playerName: '',
-            currentQuestion: 0,
-            score: 0,
-            answers: new Array(10).fill(-1), // Initialize with -1 for 10 questions
-            gameStarted: false
-        };
+      <!-- Game Screen -->
+      <div id="game-screen" class="screen">
+        <div class="question-counter" id="question-counter">السؤال 1 من 10</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width: 10%"></div>
+        </div>
+        <div class="question" id="question-text"></div>
+        <div class="answers" id="answers"></div>
+        <div class="navigation-buttons">
+          <button class="btn" id="prev-btn" onclick="previousQuestion()" style="display: none;">
+            السابق</button>
+          <button class="btn" id="next-btn" onclick="nextQuestion()" style="display: none;">
+            التالي</button>
+          <button class="btn" id="finish-btn" onclick="finishQuiz()" style="display: none;">إنهاء
+            المسابقة</button>
+        </div>
+      </div>
 
-        function getRandomQuestions() {
-            const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
-            return shuffled.slice(0, 10);
+      <!-- Results Screen -->
+      <div id="results-screen" class="screen">
+        <div class="score" id="final-score">0/10</div>
+        <div class="score-message" id="score-message"></div>
+        <div class="review-list" id="review-list"></div>
+        <button class="btn" onclick="resetGame()">حاول مرة أخرى</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const allQuestions = [
+      {
+        question: "متى يُحتفل باليوم الوطني السعودي؟",
+        answers: ["23 سبتمبر", "3 أكتوبر", "15 أغسطس", "1 يناير"],
+        correct: 0
+      },
+      {
+        question: "في أي عام تأسست المملكة العربية السعودية؟",
+        answers: ["1930", "1932", "1925", "1940"],
+        correct: 1
+      },
+      {
+        question: "من هو مؤسس المملكة العربية السعودية؟",
+        answers: ["الملك فيصل", "الملك عبدالعزيز آل سعود", "الملك سلمان", "الملك فهد"],
+        correct: 1
+      },
+      {
+        question: "ما هي عاصمة المملكة العربية السعودية؟",
+        answers: ["جدة", "مكة المكرمة", "الرياض", "الدمام"],
+        correct: 2
+      },
+      {
+        question: "ما هو شعار المملكة العربية السعودية؟",
+        answers: ["النسر", "الصقر", "السيفان والنخلة", "الأسد"],
+        correct: 2
+      },
+      {
+        question: "ما هي العملة الرسمية للمملكة العربية السعودية؟",
+        answers: ["الدينار", "الريال", "الدرهم", "الليرة"],
+        correct: 1
+      },
+      {
+        question: "كم عدد مناطق المملكة العربية السعودية الإدارية؟",
+        answers: ["11", "13", "15", "17"],
+        correct: 1
+      },
+      {
+        question: "ما هو اللون الأساسي في علم المملكة العربية السعودية؟",
+        answers: ["الأبيض", "الأخضر", "الأزرق", "الأحمر"],
+        correct: 1
+      },
+      {
+        question: "في أي قارة تقع المملكة العربية السعودية؟",
+        answers: ["أفريقيا", "آسيا", "أوروبا", "أمريكا"],
+        correct: 1
+      },
+      {
+        question: "ما هو أعلى جبل في المملكة العربية السعودية؟",
+        answers: ["جبل اللوز", "جبل السودة", "جبل طويق", "جبل فيفا"],
+        correct: 1
+      },
+      {
+        question: "ما هو اسم النشيد الوطني السعودي؟",
+        answers: ["السلام الملكي", "النشيد الوطني", "عاش الملك", "سارعي"],
+        correct: 3
+      },
+      {
+        question: "ما هي المدينة التي تُعد مركز الحج الإسلامي؟",
+        answers: ["الرياض", "جدة", "مكة المكرمة", "المدينة المنورة"],
+        correct: 2
+      },
+      {
+        question: "ما هو اسم أول حقل نفط تم اكتشافه في السعودية؟",
+        answers: ["حقل السفانية", "حقل الغوار", "حقل الدمام", "حقل خريص"],
+        correct: 2
+      },
+      {
+        question: "في أي عام أصبحت المرأة السعودية مؤهلة للقيادة؟",
+        answers: ["2015", "2017", "2018", "2020"],
+        correct: 2
+      },
+      {
+        question: "ما هو اسم المشروع السياحي الضخم في السعودية؟",
+        answers: ["نيوم", "الرياض", "جدة", "القدية"],
+        correct: 0
+      },
+      {
+        question: "ما هي لغة المملكة العربية السعودية الرسمية؟",
+        answers: ["الإنجليزية", "العربية", "الفرنسية", "الفارسية"],
+        correct: 1
+      },
+      {
+        question: "ما هو اسم الصحراء الكبرى في السعودية؟",
+        answers: ["الربع الخالي", "النفود", "الدهناء", "صحراء الدبدبة"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم أول جامعة في المملكة العربية السعودية؟",
+        answers: ["جامعة الملك سعود", "جامعة الملك عبدالعزيز", "جامعة الملك فيصل", "جامعة أم القرى"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم الملك الحالي للمملكة العربية السعودية؟",
+        answers: ["الملك فهد", "الملك عبدالله", "الملك سلمان", "الملك خالد"],
+        correct: 2
+      },
+      {
+        question: "ما هو اسم المهرجان الثقافي السنوي في الجنادرية؟",
+        answers: ["مهرجان الرياض", "مهرجان جدة", "مهرجان الجنادرية", "مهرجان الدمام"],
+        correct: 2
+      },
+      {
+        question: "ما هو اسم البحر الذي يحدها السعودية من الشرق؟",
+        answers: ["البحر الأحمر", "الخليج العربي", "بحر العرب", "المحيط الهندي"],
+        correct: 1
+      },
+      {
+        question: "ما هو اسم المدينة التي تستضيف موسم الرياض؟",
+        answers: ["جدة", "الدمام", "الرياض", "مكة"],
+        correct: 2
+      },
+      {
+        question: "في أي عام أُسست شركة أرامكو السعودية؟",
+        answers: ["1933", "1945", "1950", "1960"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم الجبل الذي يقع بالقرب من مكة؟",
+        answers: ["جبل النور", "جبل طويق", "جبل السودة", "جبل فيفا"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم أكبر ميناء في المملكة العربية السعودية؟",
+        answers: ["ميناء جدة الإسلامي", "ميناء الملك عبدالعزيز", "ميناء ينبع", "ميناء الجبيل"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم الوادي الذي يقع في الطائف؟",
+        answers: ["وادي حنيفة", "وادي الرمة", "وادي لجب", "وادي الدواسر"],
+        correct: 2
+      },
+      {
+        question: "ما هو اسم أكبر مدينة من حيث عدد السكان في السعودية؟",
+        answers: ["الرياض", "جدة", "مكة", "الدمام"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم المطار الرئيسي في الرياض؟",
+        answers: ["مطار الملك فهد", "مطار الملك خالد", "مطار الملك عبدالعزيز", "مطار الأمير محمد بن عبدالعزيز"],
+        correct: 1
+      },
+      {
+        question: "ما هو اسم أطول طريق سريع في السعودية؟",
+        answers: ["طريق 10", "طريق 40", "طريق 50", "طريق 60"],
+        correct: 1
+      },
+      {
+        question: "ما هو اسم المنطقة التي تشتهر بالزراعة في السعودية؟",
+        answers: ["القصيم", "الرياض", "الشرقية", "جازان"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم أكبر مشروع للطاقة الشمسية في السعودية؟",
+        answers: ["مشروع سكاكا", "مشروع نيوم", "مشروع الشعيبة", "مشروع القدية"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم المدينة التي تُعرف باسم عروس البحر الأحمر؟",
+        answers: ["جدة", "ينبع", "الدمام", "الجبيل"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم أول ملك للمملكة العربية السعودية؟",
+        answers: ["الملك عبدالعزيز", "الملك سعود", "الملك فيصل", "الملك خالد"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم الحديقة الوطنية الأولى في السعودية؟",
+        answers: ["حديقة الملك عبدالله", "حديقة الملك فهد", "الحديقة الوطنية الأولى", "حديقة الأحساء الوطنية"],
+        correct: 2
+      },
+      {
+        question: "ما هو اسم المعركة التي أدت إلى توحيد الرياض؟",
+        answers: ["معركة الرياض", "معركة جدة", "معركة مكة", "معركة الدمام"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم أكبر محمية طبيعية في السعودية؟",
+        answers: ["محمية الملك سلمان", "محمية الإمام تركي", "محمية الربع الخالي", "محمية الحرة"],
+        correct: 0
+      },
+      {
+        question: "في أي عام انضمت السعودية إلى منظمة التجارة العالمية؟",
+        answers: ["1995", "2000", "2005", "2010"],
+        correct: 2
+      },
+      {
+        question: "ما هو اسم أكبر جزيرة سعودية في الخليج العربي؟",
+        answers: ["جزيرة فرسان", "جزيرة تاروت", "جزيرة دارين", "جز Elisha"],
+        correct: 1
+      },
+      {
+        question: "ما هو اسم المنطقة التي تشتهر بالتمور في السعودية؟",
+        answers: ["الأحساء", "الرياض", "جدة", "القصيم"],
+        correct: 0
+      },
+      {
+        question: "ما هو اسم أكبر مهرجان رياضي في السعودية؟",
+        answers: ["مهرجان الملك عبدالعزيز للإبل", "مهرجان الرياض الرياضي", "مهرجان جدة الرياضي", "مهرجان الدمام"],
+        correct: 0
+      }
+    ];
+
+    let selectedQuestions = [];
+    let gameState = {
+      playerName: '',
+      currentQuestion: 0,
+      score: 0,
+      answers: new Array(10).fill(-1), // Initialize with -1 for 10 questions
+      gameStarted: false
+    };
+
+    function getRandomQuestions() {
+      const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, 10);
+    }
+
+    function startGame() {
+      const playerName = document.getElementById('player-name').value.trim();
+      if (!playerName) {
+        // alert('يرجى إدخال اسمك أولاً');
+        return;
+      }
+
+      gameState.playerName = playerName;
+      gameState.gameStarted = true;
+      selectedQuestions = getRandomQuestions(); // Select 10 random questions
+      showScreen('game-screen');
+      showQuestion();
+    }
+
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+      });
+      document.getElementById(screenId).classList.add('active');
+    }
+
+    function showQuestion() {
+      const question = selectedQuestions[gameState.currentQuestion];
+      const questionCounter = document.getElementById('question-counter');
+      const progressFill = document.getElementById('progress-fill');
+      const questionText = document.getElementById('question-text');
+      const answersContainer = document.getElementById('answers');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const finishBtn = document.getElementById('finish-btn');
+
+      // Update question counter and progress
+      questionCounter.textContent = `السؤال ${gameState.currentQuestion + 1} من 10`;
+      progressFill.style.width = `${((gameState.currentQuestion + 1) / 10) * 100}%`;
+
+      // Show question
+      questionText.textContent = question.question;
+
+      // Clear previous answers
+      answersContainer.innerHTML = '';
+
+      // Add answer options
+      question.answers.forEach((answer, index) => {
+        const answerDiv = document.createElement('div');
+        answerDiv.className = 'answer';
+        answerDiv.textContent = answer;
+        answerDiv.onclick = () => selectAnswer(index);
+
+        // Mark as selected if this answer was previously chosen
+        if (gameState.answers[gameState.currentQuestion] === index) {
+          answerDiv.classList.add('selected');
         }
 
-        function startGame() {
-            const playerName = document.getElementById('player-name').value.trim();
-            if (!playerName) {
-                // alert('يرجى إدخال اسمك أولاً');
-                return;
-            }
+        answersContainer.appendChild(answerDiv);
+      });
 
-            gameState.playerName = playerName;
-            gameState.gameStarted = true;
-            selectedQuestions = getRandomQuestions(); // Select 10 random questions
-            showScreen('game-screen');
-            showQuestion();
+      // Update navigation buttons visibility and state
+      prevBtn.style.display = gameState.currentQuestion > 0 ? 'inline-block' : 'none';
+
+      // Check if current question is answered to enable/disable next/finish buttons
+      const isCurrentAnswered = gameState.answers[gameState.currentQuestion] !== -1;
+
+      if (gameState.currentQuestion === 9) {
+        nextBtn.style.display = 'none';
+        finishBtn.style.display = 'inline-block';
+        finishBtn.disabled = !isCurrentAnswered;
+        finishBtn.style.opacity = isCurrentAnswered ? '1' : '0.5';
+      } else {
+        nextBtn.style.display = 'inline-block';
+        nextBtn.disabled = !isCurrentAnswered;
+        nextBtn.style.opacity = isCurrentAnswered ? '1' : '0.5';
+        finishBtn.style.display = 'none';
+      }
+    }
+
+    function selectAnswer(selectedIndex) {
+      // Remove previous selection
+      document.querySelectorAll('.answer').forEach(answer => {
+        answer.classList.remove('selected');
+      });
+
+      // Mark the selected answer
+      document.querySelectorAll('.answer')[selectedIndex].classList.add('selected');
+
+      // Store the answer
+      gameState.answers[gameState.currentQuestion] = selectedIndex;
+
+      // Update button states
+      updateNavigationButtons();
+    }
+
+    function updateNavigationButtons() {
+      const nextBtn = document.getElementById('next-btn');
+      const finishBtn = document.getElementById('finish-btn');
+      const isCurrentAnswered = gameState.answers[gameState.currentQuestion] !== -1;
+
+      if (gameState.currentQuestion === 9) {
+        finishBtn.disabled = !isCurrentAnswered;
+        finishBtn.style.opacity = isCurrentAnswered ? '1' : '0.5';
+      } else {
+        nextBtn.disabled = !isCurrentAnswered;
+        nextBtn.style.opacity = isCurrentAnswered ? '1' : '0.5';
+      }
+    }
+
+    function previousQuestion() {
+      if (gameState.currentQuestion > 0) {
+        gameState.currentQuestion--;
+        showQuestion();
+      }
+    }
+
+    function nextQuestion() {
+      // Check if current question is answered
+      if (gameState.answers[gameState.currentQuestion] === -1) {
+        alert('يرجى الإجابة على السؤال الحالي أولاً');
+        return;
+      }
+
+      if (gameState.currentQuestion < 9) {
+        gameState.currentQuestion++;
+        showQuestion();
+      }
+    }
+
+    function finishQuiz() {
+      // Check if all questions are answered
+      const unanswered = gameState.answers.findIndex(answer => answer === -1);
+      if (unanswered !== -1) {
+        alert(`يرجى الإجابة على جميع الأسئلة. السؤال ${unanswered + 1} لم تتم الإجابة عليه.`);
+        gameState.currentQuestion = unanswered;
+        showQuestion();
+        return;
+      }
+
+      // Calculate score
+      gameState.score = 0;
+      gameState.answers.forEach((answer, index) => {
+        if (answer === selectedQuestions[index].correct) {
+          gameState.score++;
         }
+      });
 
-        function showScreen(screenId) {
-            document.querySelectorAll('.screen').forEach(screen => {
-                screen.classList.remove('active');
-            });
-            document.getElementById(screenId).classList.add('active');
-        }
+      showResults();
+    }
 
-        function showQuestion() {
-            const question = selectedQuestions[gameState.currentQuestion];
-            const questionCounter = document.getElementById('question-counter');
-            const progressFill = document.getElementById('progress-fill');
-            const questionText = document.getElementById('question-text');
-            const answersContainer = document.getElementById('answers');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const finishBtn = document.getElementById('finish-btn');
+    function showResults() {
+      showScreen('results-screen');
 
-            // Update question counter and progress
-            questionCounter.textContent = `السؤال ${gameState.currentQuestion + 1} من 10`;
-            progressFill.style.width = `${((gameState.currentQuestion + 1) / 10) * 100}%`;
+      const finalScore = document.getElementById('final-score');
+      const scoreMessage = document.getElementById('score-message');
+      const reviewList = document.getElementById('review-list');
 
-            // Show question
-            questionText.textContent = question.question;
+      // Show final score
+      finalScore.textContent = `${gameState.score}/10`;
 
-            // Clear previous answers
-            answersContainer.innerHTML = '';
+      // Show success/failure message
+      const percentage = (gameState.score / 10) * 100;
+      if (percentage >= 70) {
+        scoreMessage.className = 'score-message success';
+        scoreMessage.textContent = `ممتاز ${gameState.playerName}! لقد حصلت على درجة عالية!`;
+      } else if (percentage >= 50) {
+        scoreMessage.className = 'score-message';
+        scoreMessage.textContent = `جيد ${gameState.playerName}! يمكنك تحسين النتيجة بالمحاولة مرة أخرى.`;
+      } else {
+        scoreMessage.className = 'score-message failure';
+        scoreMessage.textContent = `${gameState.playerName}، تحتاج لمراجعة المعلومات أكثر. حاول مرة أخرى!`;
+      }
 
-            // Add answer options
-            question.answers.forEach((answer, index) => {
-                const answerDiv = document.createElement('div');
-                answerDiv.className = 'answer';
-                answerDiv.textContent = answer;
-                answerDiv.onclick = () => selectAnswer(index);
+      // Show review list
+      reviewList.innerHTML = '';
+      gameState.answers.forEach((playerAnswer, index) => {
+        const reviewItem = document.createElement('div');
+        const question = selectedQuestions[index];
+        const isCorrect = playerAnswer === question.correct;
 
-                // Mark as selected if this answer was previously chosen
-                if (gameState.answers[gameState.currentQuestion] === index) {
-                    answerDiv.classList.add('selected');
-                }
+        reviewItem.className = `review-item ${isCorrect ? 'correct' : 'incorrect'}`;
 
-                answersContainer.appendChild(answerDiv);
-            });
-
-            // Update navigation buttons visibility and state
-            prevBtn.style.display = gameState.currentQuestion > 0 ? 'inline-block' : 'none';
-
-            // Check if current question is answered to enable/disable next/finish buttons
-            const isCurrentAnswered = gameState.answers[gameState.currentQuestion] !== -1;
-
-            if (gameState.currentQuestion === 9) {
-                nextBtn.style.display = 'none';
-                finishBtn.style.display = 'inline-block';
-                finishBtn.disabled = !isCurrentAnswered;
-                finishBtn.style.opacity = isCurrentAnswered ? '1' : '0.5';
-            } else {
-                nextBtn.style.display = 'inline-block';
-                nextBtn.disabled = !isCurrentAnswered;
-                nextBtn.style.opacity = isCurrentAnswered ? '1' : '0.5';
-                finishBtn.style.display = 'none';
-            }
-        }
-
-        function selectAnswer(selectedIndex) {
-            // Remove previous selection
-            document.querySelectorAll('.answer').forEach(answer => {
-                answer.classList.remove('selected');
-            });
-
-            // Mark the selected answer
-            document.querySelectorAll('.answer')[selectedIndex].classList.add('selected');
-
-            // Store the answer
-            gameState.answers[gameState.currentQuestion] = selectedIndex;
-
-            // Update button states
-            updateNavigationButtons();
-        }
-
-        function updateNavigationButtons() {
-            const nextBtn = document.getElementById('next-btn');
-            const finishBtn = document.getElementById('finish-btn');
-            const isCurrentAnswered = gameState.answers[gameState.currentQuestion] !== -1;
-
-            if (gameState.currentQuestion === 9) {
-                finishBtn.disabled = !isCurrentAnswered;
-                finishBtn.style.opacity = isCurrentAnswered ? '1' : '0.5';
-            } else {
-                nextBtn.disabled = !isCurrentAnswered;
-                nextBtn.style.opacity = isCurrentAnswered ? '1' : '0.5';
-            }
-        }
-
-        function previousQuestion() {
-            if (gameState.currentQuestion > 0) {
-                gameState.currentQuestion--;
-                showQuestion();
-            }
-        }
-
-        function nextQuestion() {
-            // Check if current question is answered
-            if (gameState.answers[gameState.currentQuestion] === -1) {
-                alert('يرجى الإجابة على السؤال الحالي أولاً');
-                return;
-            }
-
-            if (gameState.currentQuestion < 9) {
-                gameState.currentQuestion++;
-                showQuestion();
-            }
-        }
-
-        function finishQuiz() {
-            // Check if all questions are answered
-            const unanswered = gameState.answers.findIndex(answer => answer === -1);
-            if (unanswered !== -1) {
-                alert(`يرجى الإجابة على جميع الأسئلة. السؤال ${unanswered + 1} لم تتم الإجابة عليه.`);
-                gameState.currentQuestion = unanswered;
-                showQuestion();
-                return;
-            }
-
-            // Calculate score
-            gameState.score = 0;
-            gameState.answers.forEach((answer, index) => {
-                if (answer === selectedQuestions[index].correct) {
-                    gameState.score++;
-                }
-            });
-
-            showResults();
-        }
-
-        function showResults() {
-            showScreen('results-screen');
-
-            const finalScore = document.getElementById('final-score');
-            const scoreMessage = document.getElementById('score-message');
-            const reviewList = document.getElementById('review-list');
-
-            // Show final score
-            finalScore.textContent = `${gameState.score}/10`;
-
-            // Show success/failure message
-            const percentage = (gameState.score / 10) * 100;
-            if (percentage >= 70) {
-                scoreMessage.className = 'score-message success';
-                scoreMessage.textContent = `ممتاز ${gameState.playerName}! لقد حصلت على درجة عالية!`;
-            } else if (percentage >= 50) {
-                scoreMessage.className = 'score-message';
-                scoreMessage.textContent = `جيد ${gameState.playerName}! يمكنك تحسين النتيجة بالمحاولة مرة أخرى.`;
-            } else {
-                scoreMessage.className = 'score-message failure';
-                scoreMessage.textContent = `${gameState.playerName}، تحتاج لمراجعة المعلومات أكثر. حاول مرة أخرى!`;
-            }
-
-            // Show review list
-            reviewList.innerHTML = '';
-            gameState.answers.forEach((playerAnswer, index) => {
-                const reviewItem = document.createElement('div');
-                const question = selectedQuestions[index];
-                const isCorrect = playerAnswer === question.correct;
-
-                reviewItem.className = `review-item ${isCorrect ? 'correct' : 'incorrect'}`;
-
-                reviewItem.innerHTML = `
+        reviewItem.innerHTML = `
                     <div class="review-question">${question.question}</div>
                     <div class="review-answer your-answer">إجابتك: ${question.answers[playerAnswer]}</div>
                     <div class="review-answer correct-answer">الإجابة الصحيحة: ${question.answers[question.correct]}</div>
                 `;
 
-                reviewList.appendChild(reviewItem);
-            });
-        }
+        reviewList.appendChild(reviewItem);
+      });
+    }
 
-        function resetGame() {
-            gameState = {
-                playerName: '',
-                currentQuestion: 0,
-                score: 0,
-                answers: new Array(10).fill(-1),
-                gameStarted: false
-            };
+    function resetGame() {
+      gameState = {
+        playerName: '',
+        currentQuestion: 0,
+        score: 0,
+        answers: new Array(10).fill(-1),
+        gameStarted: false
+      };
 
-            document.getElementById('player-name').value = '';
-            selectedQuestions = [];
-            showScreen('start-screen');
-        }
-    </script>
+      document.getElementById('player-name').value = '';
+      selectedQuestions = [];
+      showScreen('start-screen');
+    }
+  </script>
 </body>
 
 </html>
